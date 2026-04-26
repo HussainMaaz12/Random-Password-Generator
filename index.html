@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Password Generator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-card" aria-labelledby="appTitle">
+    <header class="app-header">
+      <h1 id="appTitle">Random Password Generator</h1>
+      <p class="subtitle">Create secure passwords instantly with custom options.</p>
+    </header>
+
+    <section class="password-panel" aria-label="Generated password">
+      <input
+        id="passwordOutput"
+        type="text"
+        readonly
+        placeholder="Click Generate Password"
+        aria-label="Generated password"
+      />
+      <button id="copyBtn" type="button">Copy to Clipboard</button>
+    </section>
+
+    <section class="controls" aria-label="Password settings">
+      <div class="length-row">
+        <div class="length-header">
+          <span>Password length</span>
+          <strong><span id="lengthValue">16</span> characters</strong>
+        </div>
+        <input id="lengthSlider" type="range" min="8" max="32" value="16" />
+      </div>
+
+      <div class="check-grid">
+        <label class="check-item"><input type="checkbox" id="uppercase" checked /> Uppercase (A-Z)</label>
+        <label class="check-item"><input type="checkbox" id="lowercase" checked /> Lowercase (a-z)</label>
+        <label class="check-item"><input type="checkbox" id="numbers" checked /> Numbers (0-9)</label>
+        <label class="check-item"><input type="checkbox" id="symbols" checked /> Symbols (!@#$)</label>
+      </div>
+    </section>
+
+    <button id="generateBtn" class="generate-btn" type="button">Generate Password</button>
+
+    <section class="demo" aria-label="Demo usage">
+      <h2>Demo</h2>
+      <ol>
+        <li>Select your preferred options and password length.</li>
+        <li>Click <strong>Generate Password</strong>.</li>
+        <li>Click <strong>Copy to Clipboard</strong> and look for the “Copied!” notification.</li>
+      </ol>
+    </section>
+
+    <p id="errorMsg" class="error-msg" role="alert" aria-live="polite"></p>
+  </main>
+
+  <div id="copiedToast" class="copied-toast" role="status" aria-live="polite">Copied!</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
